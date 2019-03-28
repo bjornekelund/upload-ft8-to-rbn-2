@@ -19,7 +19,8 @@ SLEEP=$DIR/sleep-to-59
 
 test $DIR/$CONFIG -ot $CONFIG || cp $DIR/$CONFIG $CONFIG
 
-echo `date --utc +"%Y-%m-%d "` "Sleeping ..."
+#echo `date --utc +"%Y-%m-%d "` "Sleeping ..."
+echo "Slp"
 
 $SLEEP
 
@@ -27,8 +28,8 @@ sleep 1
 
 TIMESTAMP=`date --utc +'%y%m%d_%H%M'`
 
-echo `date --utc +"%H:%M:%SZ"` "Rec w $CONFIG ..."
-#echo "Rec $CONFIG"
+#echo `date --utc +"%H:%M:%SZ"` "Rec using $CONFIG ..."
+echo "Rec"
 
 killall -q $RECORDER
 
@@ -48,8 +49,8 @@ done > decodes_$TIMESTAMP.txt
 
 wait
 
-echo `date --utc +"%Y-%m-%d %H:%M:%SZ"` "Uploading ..."
-#echo "Upl:" `date --utc +"%h %d %H:%M:%SZ"`
+#echo `date --utc +"%Y-%m-%d %H:%M:%SZ"` "Uploading to RBN..."
+echo "Upl:" `date --utc +"%h %d %H:%M:%SZ"`
 
 
 $DIR/upload-to-rbn $BROADCASTIP $UDPPORT decodes_$TIMESTAMP.txt
