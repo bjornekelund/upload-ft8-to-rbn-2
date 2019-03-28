@@ -35,8 +35,8 @@ killall -q $RECORDER
 
 $RECORDER $CONFIG
 
-echo `date --utc +"%H:%M:%SZ"` "Decoding ..."
-#echo "Dec"
+#echo `date --utc +"%H:%M:%SZ"` "Decoding ..."
+echo "Dec"
 
 for file in ft8_*_$TIMESTAMP.c2
 do
