@@ -2,7 +2,7 @@
 
 DIR=/media/mmcblk0p1/apps/sdr_transceiver_ft8
 
-rw
+mount -o rw,remount /media/mmcblk0p1
 
 $DIR/stop.sh
 
@@ -21,5 +21,5 @@ cp $DIR/start.sh /media/mmcblk0p1
 
 lbu commit -d
 
-ro
+mount -o rw,remount /media/mmcblk0p1
 
