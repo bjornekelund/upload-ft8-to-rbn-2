@@ -11,4 +11,4 @@ SCL=`cat $XADC_PATH/in_temp0_scale`
 FORMULA="(($OFF+$RAW)*$SCL)/1000.0"
 VAL=`echo "scale=2;${FORMULA}" | bc`
 
-echo "Zynq 7010 die temperature = ${VAL}C"
+echo "Zynq 7020 die temperature = ${VAL}C"
