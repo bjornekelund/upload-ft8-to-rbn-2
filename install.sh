@@ -21,5 +21,5 @@ cp $DIR/start.sh /media/mmcblk0p1
 
 lbu commit -d
 
-mount -o rw,remount /media/mmcblk0p1
+mount -o ro,remount /media/mmcblk0p1
 
