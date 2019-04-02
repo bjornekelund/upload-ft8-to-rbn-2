@@ -1,5 +1,7 @@
 Before you start ensure that you have a working installation of RBN Aggregator.
 This is the conduit for uploading spots to the Reverse Beacon Network's servers.
+Also make sure you set up RBN Aggregator to listen to the UDP broadcast port you 
+select during the configuration below. 
 
 Download Pavel Demin's SD-card image zip-file for your Red Pitaya 122.88-16
 and uncompress it into a folder. It can be found at:
@@ -7,7 +9,7 @@ and uncompress it into a folder. It can be found at:
 https://pavel-demin.github.io/red-pitaya-notes/sdr-transceiver-ft8/
 
 Copy the content of the folder to a clean FAT32-formatted SD card.
-Do not follow any other instructions on the web page.
+Do nothing more. Do not follow any other instructions on Demin's web page.
 
 SSH to the Red Pitaya. Default user name is "root", default password is "changeme".
 
@@ -22,7 +24,6 @@ the Red Pitaya (e.g. "my FT8 skimmer").
 
 Install git
 
-# rw
 # apk update
 # apk add git
 
@@ -37,27 +38,22 @@ Install the utilities for config cycling and RBN upload
 
 Configure your skimmer. Add grid, call, antenna information (for pskreporter), 
 broadcast IP port, etc. as required. 
-For twilight duration, empirical studies suggest two hours is a good number. 
-Should you live close to the equator you may want to use a shorter number, 
-such as 1.5. Setting it to zero disables the use of the twilight configuration 
-file write-c2-files-gray.cfg. 
 Enter your device's calibration factor in ppm (with one decimal and a decimal 
-point!) in each of the three configuration files. If you do not know your 
-calibration factor, leave it at 0.0. More information on calibration can be 
-found on the calibration page of my website. 
-You may also want to modify the band selection. 
-This is done by commenting/uncommenting the corresponding lines. If you do this, 
-make sure you activate exactly max 16 bands and also keep an eye on the commas 
-for correct syntax. Exit the editor for each of the five files with Ctrl-S Ctrl-X. 
-Run the script to the end. Do not exit with Ctrl-C. 
+point!). If you do not know your calibration factor, leave it at 0.0. More 
+information on calibration can be found on the calibration page of my website. 
+You may also want to modify the band selection to also include e.g. popular 
+Fox/Hound DX base frequencies such as 7056, 10131, and 14080kHz. (Keep in mind 
+that the frequency in the configuration file is the band center, i.e. 1.5kHz 
+above the base frequency.) This is done by adding/commenting/uncommenting the 
+corresponding lines. If you do this, make sure you do not exceed 16 bands and
+also keep an eye on the commas for correct syntax. Exit the editor for each of 
+the three files with Ctrl-S Ctrl-X. Run the script to the end. Do not exit 
+prematurely with e.g. Ctrl-C. The receiver will automatically start when 
+the configuration is completed.
 
 # ./config.sh
 
-Start
-
-# reboot
-
-Wait for the orange LED to stop blinking, then SSH to the RP and check that we are in business
+Check that we are in business
 
 # tail -F /dev/shm/decode-ft8.log
 
@@ -66,8 +62,8 @@ file appears. When you are done, hit ctrl-C and log off
 
 # exit
 
-Should you want to understand/modify/build the upload-to-rbn utility, 
-you may find it on https://github.com/bjornekelund
+Should you want to understand/modify/build the upload-to-rbn utility, you may find 
+it on https://github.com/bjornekelund
 
 To deinstall the additions and return to only reporting spots to pskreporter, do:
 
@@ -76,11 +72,8 @@ To deinstall the additions and return to only reporting spots to pskreporter, do
 
 To update the additions to the latest version do:
 
-# /root/apps/stop.sh
 # cd ~/upload-ft8-to-rbn-2
 # git pull
-# ~/apps/stop.sh
 # ./install.sh
 # ./config.sh
-# reboot
 
