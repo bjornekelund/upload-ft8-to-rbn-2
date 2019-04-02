@@ -13,3 +13,5 @@ nano $DIR/write-c2-files.cfg
 mount -o ro,remount /media/mmcblk0p1
 
 lbu commit -d
+
+$DIR/start.sh
