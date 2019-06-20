@@ -7,7 +7,7 @@ to the [Reverse Beacon Network](http://www.reversebeacon.net) via
 Although grid is set in the script, call sign and grid associated 
 with the spots are determined by the settings in RBN Aggregator. 
 Based on the [upload-to-rbn](https://github.com/bjornekelund/upload-to-rbn) 
-utility. Additional information [here](https://sm7iun.se). 
+utility. Additional information [here](https://sm7iun.ekelund.nu/red-pitaya/ft8-skimmer). 
 
 Contains a shell script (`temp.sh`) which is installed in the home
 folder to check the operating temperature of the Zynq 7020 SoC. 
