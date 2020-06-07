@@ -1,7 +1,6 @@
 #! /bin/sh
 
 # Station parameters
-GRID=
 UDPPORT=2238
 # End of station parameters
 
