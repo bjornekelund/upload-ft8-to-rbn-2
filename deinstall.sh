@@ -1,6 +1,6 @@
 #! /bin/sh
 
-DIR=/media/mmcblk0p1/apps/sdr_transceiver_ft8
+DIR=/media/mmcblk0p1/apps/sdr_transceiver_ft8_122_88
 
 $DIR/stop.sh
 mount -o rw,remount /media/mmcblk0p1
