@@ -50,10 +50,10 @@ done > decodes_$TIMESTAMP.txt
 
 wait
 
+$DIR/upload-to-rbn $BROADCASTIP $UDPPORT decodes_$TIMESTAMP.txt
+
 #echo `date --utc +"%Y-%m-%d %H:%M:%SZ"` "Uploading to RBN..."
 echo "Upl:" `wc -l < decodes_$TIMESTAMP.txt` "@" `date --utc +"%h %d 
 %H:%M:%SZ"`
-
-$DIR/upload-to-rbn $BROADCASTIP $UDPPORT decodes_$TIMESTAMP.txt
 
 rm -f ft8_*_$TIMESTAMP.c2
